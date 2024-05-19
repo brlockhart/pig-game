@@ -9,6 +9,8 @@ const btnRoll = document.querySelector('.btn--roll');
 const btnNew = document.querySelector('btn--new');
 const btnHold = document.querySelector('btn--hold');
 let currentScore = 0;
+let activePlayer = 0;
+const totalScores = [0, 0];
 //Starting conditions
 score0Element.textContent = 0;
 score1Element.textContent = 0;
@@ -23,7 +25,9 @@ btnRoll.addEventListener('click', function () {
   //Functionality of current score
   if (dice !== 1) {
     currentScore = currentScore + dice;
+    document.querySelector(`current--${activePlayer}`).textContent = currentScore;
     currentScore0.textContent = currentScore;
   } else {
+    //switching players with a roll of 1
   }
 });
