@@ -1,9 +1,12 @@
 'use strict';
 
 //Assigning elements to variables
+const player0Element = document.querySelector('.player--0');
+const player1Element = document.querySelector('.player--1');
 const score0Element = document.querySelector('#score--0');
 const score1Element = document.querySelector('#score--1');
 const currentScore0 = document.querySelector('#current--0');
+const currentScore1 = document.querySelector('#current--1');
 const diceElement = document.querySelector('.dice');
 const btnRoll = document.querySelector('.btn--roll');
 const btnNew = document.querySelector('btn--new');
@@ -25,9 +28,15 @@ btnRoll.addEventListener('click', function () {
   //Functionality of current score
   if (dice !== 1) {
     currentScore = currentScore + dice;
-    document.querySelector(`current--${activePlayer}`).textContent = currentScore;
-    currentScore0.textContent = currentScore;
+    document.querySelector(`#current--${activePlayer}`).textContent = currentScore;
   } else {
-    //switching players with a roll of 1
+    //switching players and resetting values with a roll of 1
+    currentScore = 0;
+    currentScore0.textContent = 0;
+    currentScore1.textContent = 0;
+    activePlayer = activePlayer === 0 ? 1 : 0;
+    //changing background color based on player
+    player0Element.classList.toggle('player--active');
+    player1Element.classList.toggle('player--active');
   }
 });
