@@ -63,6 +63,7 @@ btnRoll.addEventListener('click', function () {
     }
   }
 });
+//Hold button functionality
 btnHold.addEventListener('click', function () {
   if (playing) {
     totalScores[activePlayer] = totalScores[activePlayer] + currentScore;
